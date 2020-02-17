@@ -30,11 +30,11 @@ margin-bottom =:${props => props.marginbottom};
 `;
 export const Form = Style.form`
 width:${props => props.width};
-@media(max-width:450px){
-  display:block;
-  width:100%;
-  marigin-top:20px;
-}
+  @media(max-width:450px){
+    display:block;
+    width:100%;
+    marigin-top:20px;
+  }
 `;
 
 export const label = Style.label``;

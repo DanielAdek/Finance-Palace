@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { BorrowCard } from '../components/borrowCard';
 import * as BC from '../Styles/borrowcard';

@@ -1,15 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { Landing } from '../src/pages/landing';
-import { Signup } from '../src/pages/Signup';
-import { creditCardListingPage } from '../src/pages/creditCardListing';
-import { Login } from '../src/pages/login';
-import { SinglePageCard } from '../src/pages/singleCard';
-import { CashLoan } from '../src/pages/loan';
-import { AboutUs } from '../src/pages/aboutUs';
-import { Dashboards } from '../src/pages/dashboard';
-import { AccountDashboard } from '../src/pages/account';
+import { Landing } from './pages/landing';
+import { Signup } from './pages/Signup';
+import { creditCardListingPage } from './pages/creditCardListing';
+import { Login } from './pages/login';
+import { SinglePageCard } from './pages/singleCard';
+import { CashLoan } from './pages/loan';
+import { AboutUs } from './pages/aboutUs';
+import { Dashboards } from './pages/dashboard';
+import { AccountDashboard } from './pages/account';
+import { PayLoan } from './pages/payLoan'
 
 function App() {
 	return (
@@ -24,6 +25,7 @@ function App() {
 				<Route path="/about-us" component={AboutUs} />
 				<Route path="/dashboard" component={Dashboards} />
 				<Route path="/account" component={AccountDashboard} />
+				<Route path="/payLoan" component={PayLoan} />
 			</Switch>
 		</Router>
 	);

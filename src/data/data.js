@@ -54,58 +54,30 @@ export const profile = [
 	},
 ];
 
-export const Account = [
+export const Transaction =[
 	{
-		accountname: 'olorunwa lawrence',
-		accounttype: 'credit card',
-		cardnumber: 12345678456,
-		registrationdate: Date.now(),
-		bvn: 23456789654,
-		loantype: 'credit card',
-		balance: '150,0000',
-		cardType: 'premium',
-		paymentStatus: 'unpayed',
-	},
-];
-
-export const Transaction = [
-	{
-		id: 1,
-		cardnumber: 12345678456,
-		date: Date(),
-		amount: '#30000',
-		balance: '150,000',
-		cardType: 'premium',
-		status: 'loan',
-		paymentStatus: 'not payed',
-		cardStatus: 'loan',
-
-		payback: 'pay back',
+		"amount": 700000,
+		"outstandingDays": 0,
+		"totalAmountPayable": 700000,
+		"loanPaid": true,
+		"_id": "5e3f4cd3708144a1d64dd2d1",
+		"customerId": "5e3b089acc800a39afe78ffa",
+		"deadline": "2020-05-08T23:00:00.000Z",
+		"createdAt": "2020-02-09T00:05:39.447Z",
+		"updatedAt": "2020-02-09T00:14:51.967Z",
+		"__v": 0,
+		"bank": "United Bank of Africa"
 	},
 	{
-		id: 2,
-		cardnumber: 12345678456,
-		date: Date(),
-		amount: '#30000',
-		balance: '150,000',
-		cardType: 'premium',
-		status: 'loan',
-		paymentStatus: 'not payed',
-		time: new Date().getTime(),
-
-		payback: 'pay back',
-	},
-	{
-		id: 3,
-		cardnumber: 12345678456,
-		date: Date.now(),
-		amount: '#30000',
-		balance: '150,000',
-		cardType: 'premium',
-		status: 'loan',
-		paymentStatus: 'not payed',
-		cardStatus: 'loan',
-
-		payback: 'pay back',
-	},
+		"amount": 500000,
+		"outstandingDays": 0,
+		"totalAmountPayable": 5401000,
+		"loanPaid": false,
+		"_id": "5e3f572ceae6aea7e5e700ab",
+		"customerId": "5e3b089acc800a39afe78ffa",
+		"deadline": "2020-05-08T23:00:00.000Z",
+		"createdAt": "2020-02-09T00:49:48.268Z",
+		"updatedAt": "2020-02-10T22:59:59.049Z",
+		"__v": 0
+	}
 ];

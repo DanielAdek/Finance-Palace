@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { handleAuthenticate } from '../store/action/axiosActions/auth';
 import * as SI from '../Styles/login';
 
 export const LoginAuthentication = () => {
 	// React Hooks
-	// const [authLogin, setAuthLogin] = useState({});
+	const history = useHistory();
+	const [loginData, setLoginData] = useState({ dataField: '', password: '' });
 
-	// const handleChange = e => setAuthLogin({ ...authLogin, [e.target.name]: e.target.value });
+	// Redux Hooks
+	const dispatch = useDispatch();
+
+	// actions
+	const handleChange = e => setLoginData({ ...loginData, [e.target.name]: e.target.value });
+
+	const handleSubmit = () => dispatch(handleAuthenticate(loginData, history));
 
 	return (
 		<SI.signupContainer>
@@ -32,8 +42,8 @@ export const LoginAuthentication = () => {
 									type="text"
 									name="dataField"
 									placeholder="Email or Phone Number"
-									class="form-control"
-									// onChange={handleChange}
+									className="form-control"
+									onChange={handleChange}
 								></SI.FormInput>
 							</SI.formGroup>
 
@@ -42,12 +52,12 @@ export const LoginAuthentication = () => {
 									type="password"
 									name="password"
 									placeholder="Password"
-									class="form-control"
-									// onChange={handleChange}
+									className="form-control"
+									onChange={handleChange}
 								></SI.FormInput>
 							</SI.formGroup>
 						</SI.formRow>
-						<SI.SignupBotton type="button">Login</SI.SignupBotton>
+						<SI.SignupBotton type="button" onClick={handleSubmit}>Login</SI.SignupBotton>
 					</SI.Form>
 					<SI.ForgetPassword>
 						<Link to="/forgetpassword">Forget Password</Link>

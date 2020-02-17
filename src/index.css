@@ -9,6 +9,7 @@ body {
 
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+	color: #cccccc5b;
 }
 
 .d {
@@ -43,4 +44,82 @@ a:hover {
 
 .react-bootstrap-table{
 	overflow-x: scroll;
+}
+
+.react-tabs__tab-list {
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #343a40;
+	padding: 20px;
+}
+
+.react-tabs__tab--selected {
+	color: cornflowerblue !important;
+	font-weight: bolder;
+	padding: 0 !important;
+	background: inherit !important;
+	border-color: inherit !important;
+	border: none !important;
+}
+
+
+.status-pending {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 19px;
+	text-transform: uppercase;
+	color: #F2C94C;
+	border-radius: 12px;
+	background: rgb(242, 201, 76, 0.1);
+	width: 120px;
+	height: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-transform: uppercase;
+}
+
+.status-completed {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 19px;
+	text-transform: uppercase;
+	color: #27AE60;
+	border-radius: 12px;
+	background:rgb(39, 174, 96, 0.1);
+	width: 120px;
+	height: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-transform: uppercase;
+}
+
+.td-row-action-not-completed {
+	padding-left: 0px !important;
+}
+
+.action-not-completed {
+	cursor: pointer;
+	font-family: Open Sans;
+	font-weight: 600;
+	font-size: 14px;
+	color: #4C7EFF;
+	width: 80px;
+	height: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.red {
+	color: red;
+}
+
+.yellow {
+	color: #F2C94C;
 }

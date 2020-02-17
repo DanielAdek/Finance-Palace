@@ -1,138 +1,121 @@
-import React from 'react';
-import BootstrapTable from 'react-bootstrap-table-next';
+import React, { Fragment, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import moment from 'moment';
 import * as Acct from '../Styles/account';
-import * as CL from '../Styles/loan';
-import * as FM from '../Styles/form';
-import { HarmBurger } from '../components/hambugger/hamBurger';
-import { Account } from '../data/data';
+
+import { ToNairaFormat } from '../helpers'
+import { retreiveUserAccount, revealBvn, unRevealBvn, createAccount, updateAccount } from '../store/action/axiosActions/account';
+
 export const UserAccount = () => {
-	const columns = [
-		{
-			dataField: 'id',
-			text: 'Account',
-		},
-		{
-      dataField: 'accountname',
-			text: 'Account Name',
-		},
-		{
-			dataField: 'accounttype',
-			text: 'account Type',
-		},
-		{
-			dataField: 'cardnumber',
-			text: 'Card Number',
-		},
-		{
-			dataField: 'registrationdate',
-			text: 'Registration Date',
-		},
-		{
-			dataField: 'cardType',
-			text: 'Card Type',
-		},
-		{
-			dataField: 'loantype',
-			text: 'Loan Type',
-		},
-		{
-			dataField: 'paymentStatus',
-			text: 'Payment Status',
-		},
-	];
+	// React Hooks
+  const history = useHistory();
+  const [openReqPass, setOpenReqPass] = useState(false);
+	const [password, setPassword] = useState({ password: '' });
+	
+	// Redux Hooks
+	const dispatch = useDispatch();
+	const userAccount = useSelector(state => state.Account.accounts);
+	const bvn = useSelector(state => state.Account.bvn);
+	
+	useEffect(() => {
+		if (!userAccount) {
+      dispatch(retreiveUserAccount());
+    }
+	}, [dispatch, userAccount]);
+
+	const handleUpdateBalance = data => dispatch(updateAccount({ bankId: data._id, balance: 1000000 }));
+
+	const handleRequestPassword = () => setOpenReqPass(true);
+
+	const handleOnChange = event => setPassword({...password, [event.target.name]: event.target.value });
+
+	const handleRequestAccount = () => {
+		setOpenReqPass(false);
+		dispatch(createAccount(password, history));
+	}
+
+	const handleBVNToggle = () =>  {
+		if (bvn) {
+			dispatch(unRevealBvn());
+		} else dispatch(revealBvn())
+	}
+
+	const Marchants = userAccount && userAccount.banks.map((data, index) => (
+		<Acct.ListMarchants key={index}>
+			<Acct.Header>Marchant</Acct.Header>
+			<Acct.Marchant>{data.bankName}</Acct.Marchant>
+			<Acct.Header>Balance</Acct.Header>
+			<Acct.Balance>{ToNairaFormat(data.balance)}</Acct.Balance>
+			<Acct.UpdateBal onClick={() => handleUpdateBalance(data)}>Add Money</Acct.UpdateBal>
+		</Acct.ListMarchants>
+	))
+
 	return (
-		<Acct.container>
-			<Acct.Div>
-				<HarmBurger />
-			</Acct.Div>
-
+		<Fragment>
+			<Acct.sectionWrapper>
+				<Acct.PageTitle>My Account Details</Acct.PageTitle>
+			</Acct.sectionWrapper>
 			<Acct.wrapper width="80%" margin="0px auto">
-				<Acct.Header>My Account Details</Acct.Header>
-				<BootstrapTable keyField="id" data={Account} columns={columns} />
-
-				<CL.FormContainer>
-					<CL.formWrapper>
-						<CL.Div align="center" marginBottom="40px" size="1.5rem" color="#15549a">
-							Update my Profile
-						</CL.Div>
-						<CL.Div width="90%" margin="1px auto" marginTop="70px" background="#f8f9fa" padding="20px">
-							<FM.Form>
-								{/* <Acct.Input type="file" className="form-control" accept="image/*" /> */}
-								<CL.FormRow className="form-row">
-									<CL.Div className="form-group col-md-6">
-										<FM.label for="email">first Name</FM.label>
-										<FM.Input type="text" className="form-control" placeholder="First Name" />
-									</CL.Div>
-									<CL.Div className="form-group col-md-6">
-										<FM.label for="email">first Name</FM.label>
-										<FM.Input type="text" className="form-control" placeholder="First Name" />
-									</CL.Div>
-									<CL.Div className="form-group col-md-6">
-										<FM.label for="email">Last Name</FM.label>
-										<FM.Input type="text" className="form-control" placeholder="Last Name" />
-									</CL.Div>
-									<CL.Div className="form-group col-md-6">
-										<FM.label for="email">Maiden Name</FM.label>
-										<FM.Input type="text" className="form-control" placeholder="Maiden Name" />
-									</CL.Div>
-									<CL.Div className="form-group col-md-6">
-										<FM.label for="email">BVN</FM.label>
-										<FM.Input type="text" className="form-control" placeholder="BVN Number" />
-									</CL.Div>
-									<CL.Div className="form-group col-md-6">
-										<FM.label for="email">Email</FM.label>
-										<FM.Input type="text" className="form-control" placeholder="Email" />
-									</CL.Div>
-									<CL.Div className="form-group col-md-6">
-										<FM.label for="password">Password</FM.label>
-										<FM.Input type="text" className="form-control" placeholder="Password" />
-									</CL.Div>
-									<CL.Div className="form-group col-md-6">
-										<FM.label for="City">City</FM.label>
-										<FM.Input type="text" className="form-control" placeholder="City" />
-									</CL.Div>
-
-									<CL.Div className="form-group col-md-6">
-										<FM.label for="State">State</FM.label>
-										<FM.Input type="text" className="form-control" placeholder="State" />
-									</CL.Div>
-									<CL.Div className="form-group col-md-6">
-										<FM.label for="country">country</FM.label>
-										<FM.Input type="text" className="form-control" placeholder="Country" />
-									</CL.Div>
-
-									{/* <CL.Div className="form-group col-md-12">
-										<FM.label for="Amount">Amount</FM.label>
-										<InputRanges value={value} setValue={setValue} />
-									</CL.Div> */}
-								</CL.FormRow>
-								<CL.formGroup className="form-group">
-									<CL.Div className="form-group col-md-12">
-										<FM.label for="address">Address</FM.label>
-										<FM.Input type="text" className="form-control" placeholder=" Office Address" />
-									</CL.Div>
-								</CL.formGroup>
-								<CL.formGroup className="form-group">
-									<CL.Div className="form-group col-md-12"></CL.Div>
-								</CL.formGroup>
-
-								<FM.Button
-									width="50%"
-									fontWeight="500"
-									background="#15549a"
-									color="white"
-									padding="13px"
-									align="center"
-									size="20px"
-									border="none"
-								>
-									update profile
-								</FM.Button>
-							</FM.Form>
-						</CL.Div>
-					</CL.formWrapper>
-				</CL.FormContainer>
+				<Acct.Grid3Col>
+					<Acct.Grid1 increase={openReqPass}>
+						<Acct.Header>Account</Acct.Header>
+						<Acct.Account>{!userAccount ?
+							<Acct.CreateBtn onClick={handleRequestPassword}>Generate Account</Acct.CreateBtn> : 
+							`${userAccount && moment(userAccount.createdAt).format('LL')}`}
+							{ openReqPass && 
+							<Acct.SimpleForm>
+								<Acct.InputPassword placeholder="*********" name="password" type="password" onChange={handleOnChange} />
+								<Acct.GenerateBtn onClick={handleRequestAccount}>Generate</Acct.GenerateBtn>
+							</Acct.SimpleForm> }
+						</Acct.Account>
+					</Acct.Grid1>
+					<Acct.Grid2>
+						{userAccount ?
+						<Acct.Container>
+							<Acct.Contain>
+								<Acct.Label>BVN: </Acct.Label>
+								<Acct.Bvn>{bvn ? bvn : '**************'}</Acct.Bvn>
+								<Acct.RevelBtn onClick={handleBVNToggle}>{!bvn ? 'Reveal BVN' : 'Hide BVN'}</Acct.RevelBtn>
+							</Acct.Contain>
+							<Acct.Contain>
+								<Acct.Label>First Name: </Acct.Label>
+								<Acct.Username>{userAccount && userAccount.customerId.firstName}</Acct.Username>
+							</Acct.Contain>
+							<Acct.Contain>
+								<Acct.Label>Last Name: </Acct.Label>
+								<Acct.Username>{userAccount && userAccount.customerId.lastName}</Acct.Username>
+							</Acct.Contain>
+							<Acct.Contain>
+								<Acct.Label>Username: </Acct.Label>
+								<Acct.Username>{userAccount && userAccount.customerId.username}</Acct.Username>
+							</Acct.Contain>
+							<Acct.Contain>
+								<Acct.Label>Email: </Acct.Label>
+								<Acct.Email>{userAccount && userAccount.customerId.email}</Acct.Email>
+							</Acct.Contain>
+							<Acct.Contain>
+								<Acct.Label>Phone Number: </Acct.Label>
+								<Acct.PhoneNumber>{userAccount && userAccount.customerId.phoneNumber}</Acct.PhoneNumber>
+							</Acct.Contain>
+							<Acct.Contain>
+								<Acct.Label>Address: </Acct.Label>
+								<Acct.Address>{userAccount && userAccount.customerId.address}</Acct.Address>
+							</Acct.Contain>
+						</Acct.Container> : 
+						<Acct.Container>
+							<Acct.NoAccount h="400px">No Account Created</Acct.NoAccount>
+						</Acct.Container>}
+					</Acct.Grid2>
+					{ userAccount ?
+					<Acct.Grid3 h="auto">
+						{Marchants}
+					</Acct.Grid3> : 
+					<Acct.Grid3 h="200px">
+						<Acct.NoAccount h="200px">No Marchant</Acct.NoAccount>
+					</Acct.Grid3>}
+				</Acct.Grid3Col>
 			</Acct.wrapper>
-		</Acct.container>
+		</Fragment>
 	);
 };

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import { Navigation } from '../components/Nav';
 import { LoanCards } from '../components/loandCards';
 // import { Slider } from '../components/carousel';

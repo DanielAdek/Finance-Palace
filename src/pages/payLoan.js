@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
-import { UserProfile } from '../components/profile';
+import { PayForm } from '../components/payloan';
 import { TopNav } from '../components/TopNav';
 
-export const AccountDashboard = () => {
+export const PayLoan = () => {
 	return (
 		<Fragment>
 			<TopNav />
-			<UserProfile />
+			<PayForm />
 		</Fragment>
 	);
 };

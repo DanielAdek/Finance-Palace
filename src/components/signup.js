@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { handleOnBoard } from '../store/action/axiosActions/auth';
 
 import * as SA from '../Styles/signup';
 
-import { Link } from 'react-router-dom';
 
 export const SignupAuthentication = () => {
+	// React Hooks
 	const history = useHistory();
+	const initialState = { firstName: "", lastName: "", dob: "", username: "", email: "", password: "" }
+	const [userData, setUserDate] = useState(initialState);
 
-	const [authSignup, setAuthSignUp] = useState({});
+	// Redux Hooks
+	const dispatch = useDispatch();
+	const handleChange = e => setUserDate({ ...userData, [e.target.name]: e.target.value });
 
-	const handleChange = e => setAuthSignUp({ ...authSignup, [e.target.name]: e.target.value });
+	const handleSubmit = () => dispatch(handleOnBoard(userData, history));
 
 	return (
 		<SA.signupContainer>
@@ -28,7 +35,7 @@ export const SignupAuthentication = () => {
 						<SA.formGroup className="form-group col-md-6">
 							<SA.FormInput
 								type="text"
-								name="firstname"
+								name="firstName"
 								placeholder="first Name"
 								className="form-control"
 								onChange={handleChange}
@@ -37,7 +44,7 @@ export const SignupAuthentication = () => {
 						<SA.formGroup className="form-group col-md-6">
 							<SA.FormInput
 								type="text"
-								name="Lastname"
+								name="lastName"
 								placeholder="Last Name"
 								className="form-control"
 								onChange={handleChange}
@@ -46,29 +53,22 @@ export const SignupAuthentication = () => {
 						<SA.formGroup className="form-group col-md-6">
 							<SA.FormInput
 								type="text"
-								name="Username"
+								name="username"
 								placeholder="Username"
 								className="form-control"
 								onChange={handleChange}
 							/>
 						</SA.formGroup>
-
 						<SA.formGroup className="form-group col-md-6">
-							<SA.FormInput type="email" name="" placeholder="Email" className="form-control" />
+							<SA.FormInput type="email" onChange={handleChange} name="email" placeholder="Email" className="form-control" />
 						</SA.formGroup>
 						<SA.formGroup className="form-group col-md-6">
-							<SA.FormInput type="password" name="" placeholder="Password" className="form-control" />
+							<SA.FormInput type="password" onChange={handleChange} name="password" placeholder="Password" className="form-control" />
 						</SA.formGroup>
 						<SA.formGroup className="form-group col-md-6">
-							<SA.FormInput type="text" name="" placeholder="Country" className="form-control" />
+							<SA.FormInput type="date" onChange={handleChange} name="dob" max={"2002-01-01"} placeholder="Date of birth" className="form-control" />
 						</SA.formGroup>
-						<SA.formGroup className="form-group col-md-6">
-							<SA.FormInput type="text" name="" placeholder="state" className="form-control" />
-						</SA.formGroup>
-						<SA.formGroup className="form-group col-md-6">
-							<SA.FormInput type="date" name="" placeholder="Date of birth" className="form-control" />
-						</SA.formGroup>
-						<SA.SignupBotton type="button">sign Up</SA.SignupBotton>
+						<SA.SignupBotton type="button" onClick={handleSubmit}>sign Up</SA.SignupBotton>
 					</SA.formRow>
 				</SA.Form>
 			</SA.Signupright>

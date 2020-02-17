@@ -1,5 +1,5 @@
 import React from 'react';
-import * as DIV from '../Styles/borrowcard';
+// import * as DIV from '../Styles/borrowcard';
 import * as ABT from '../Styles/aboutUs';
 
 export const About = () => {

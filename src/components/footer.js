@@ -9,7 +9,7 @@ export const Footer = () => {
 				<FT.FooterTopContainer>
 					<FT.IMG src={require('../assests/images/logo.png')}></FT.IMG>
 					<FT.wrapper>
-						<FT.Newsletter>Signup Our Newsletter</FT.Newsletter>
+						<FT.Newsletter>Subscribe To Our Newsletter</FT.Newsletter>
 						<FRM.Form width="60%">
 							<FRM.Input placeholder="write an email" padding="9px" width="70%" />
 							<FRM.Button
@@ -41,10 +41,10 @@ export const Footer = () => {
 						<FT.sectiontextWrapper>
 							<FT.AddressText>
 								<FT.Span className="fa fa-map-marker"></FT.Span>
-								25b ameen street
+								Lagos, Nigeria
 							</FT.AddressText>
 							<FT.Call>
-								<FT.Span className="fa fa-phone"></FT.Span> +2347015009775
+								<FT.Span className="fa fa-phone"></FT.Span> +2348182089681
 							</FT.Call>
 						</FT.sectiontextWrapper>
 					</FT.SecondSection1>
@@ -82,7 +82,7 @@ export const Footer = () => {
 			</FT.Footer>
 			<FT.Littlefooter>
 				<FT.footerWrapper>
-					<FT.Para align="left">&copy; copy right 2019| olorunwa lawrence</FT.Para>
+					<FT.Para align="left">&copy; copy right 2020| Daniel Adek</FT.Para>
 					<FT.Para align="right">Terms of use | private policy</FT.Para>
 				</FT.footerWrapper>
 			</FT.Littlefooter>
