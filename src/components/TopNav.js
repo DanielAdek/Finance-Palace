@@ -10,11 +10,13 @@ export const TopNav = () => {
 	const dispatch = useDispatch();
 	const user = useSelector(state => state.Authenticate.user);
 
+	const token = localStorage.getItem('x-auth-t');
+
 	useEffect(() => {
-		if (!user) {
+		if (!user && token) {
       dispatch(retrieveUserData());
     }
-	}, [dispatch, user]);
+	}, [dispatch, token, user]);
 
 	return (
 		<TP.TopNav>
