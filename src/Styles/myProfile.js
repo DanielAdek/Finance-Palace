@@ -46,7 +46,18 @@ export const Div = Style.div``;
 
 export const label = Style.label``;
 
-export const Input = Style.input``;
+export const Input = Style.input`
+  background: #fff;
+  border: 1px solid #9a9a9a;
+  border-radius: 4px;
+  padding: 30px 4%;
+  margin: 13px 0;
+  font-size: 16px;
+  line-height: 22px;
+  color: #3e4c59;
+  border: none;
+  color: #62B0E8;
+`;
 
 export const PageTitle = Style.div`
   color: #62B0E8;

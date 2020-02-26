@@ -13,7 +13,6 @@ import { UserAccount } from './account';
 import { ToNairaFormat } from '../helpers';
 import { Alert } from '../store/utils/helpers';
 
-import * as BC from '../Styles/borrowcard';
 import * as AC from '../Styles/dashBoard';
 import * as CD from '../Styles/creditCardListing';
 
@@ -91,7 +90,7 @@ const columns = [
 	},
 	{
 		dataField: 'bank',
-		text: 'Bank Used',
+		text: 'Marchant Used For Payment',
 	},
 	{
 		dataField: 'loanPaid',
@@ -123,7 +122,7 @@ export const Dashboard = () => {
 	
 	// Redux Hooks
 	const dispatch = useDispatch();
-	const loans = useSelector(state => state.Loan.loans);
+	const loans = useSelector(state => state.Loan.loans) || Transaction;
 
 	useEffect(() => {
 		if (!localStorage.getItem('x-auth-t')) {
@@ -136,6 +135,10 @@ export const Dashboard = () => {
 		dispatch(retreiveLoans());
 	}, [dispatch]);
 
+	const totalCostOfPendingLoans = (loans && loans.reduce((prev, next) => prev += next.totalAmountPayable, 0)) || 0;
+
+	const pendingLoans = loans && loans.filter(data => !data.loanPaid);
+	
 	return (
 		<Tabs>
 			<AC.TabNavPanel>
@@ -160,17 +163,34 @@ export const Dashboard = () => {
 						>
 							<AC.Card>
 								<CD.Div display="flex" justifyContent="space-around" marginTop="30px">
-									<BC.BorrowWrapper background="#20c997" color="#fff"></BC.BorrowWrapper>
+									<AC.StatisticalCard bg="#DCEEFB80" className="">
+										<AC.StatCardHeading>Total Number of Loans</AC.StatCardHeading>
+										<AC.StatCardInfo color="#62B0E8">{loans && loans.length}</AC.StatCardInfo>
+									</AC.StatisticalCard>
 								</CD.Div>
 							</AC.Card>
 							<AC.Card>
 								<CD.Div display="flex" justifyContent="space-around" marginTop="30px">
-									<BC.BorrowWrapper background="#20c997" color="#fff"></BC.BorrowWrapper>
+									<AC.StatisticalCard bg="#F2C94C" className="">
+										<AC.StatCardHeading>Pending Loans </AC.StatCardHeading>
+										<AC.StatCardInfo color="#62B0E8">{loans && pendingLoans.length}</AC.StatCardInfo>
+									</AC.StatisticalCard>
 								</CD.Div>
 							</AC.Card>
 							<AC.Card>
 								<CD.Div display="flex" justifyContent="space-around" marginTop="30px">
-									<BC.BorrowWrapper background="#20c997" color="#fff"></BC.BorrowWrapper>
+									<AC.StatisticalCard bg="lightgray" className="">
+										<AC.StatCardHeading>Current Loan Amount </AC.StatCardHeading>
+										<AC.StatCardInfo color="red">{ToNairaFormat(totalCostOfPendingLoans)}</AC.StatCardInfo>
+									</AC.StatisticalCard>
+								</CD.Div>
+							</AC.Card>
+							<AC.Card>
+								<CD.Div display="flex" justifyContent="space-around" marginTop="30px">
+									<AC.StatisticalCard bg="#27AE60" className="">
+										<AC.StatCardHeading>Loan Eligibility Status</AC.StatCardHeading>
+										<AC.StatCardInfo color={loans && loans.length >= 1 && loans.length < 3 ? '#0f73bb' : 'red'}>{loans && loans.length >= 3 ? "Not Eligible" : "Eligible"}</AC.StatCardInfo>
+									</AC.StatisticalCard>
 								</CD.Div>
 							</AC.Card>
 						</AC.Wrapper>

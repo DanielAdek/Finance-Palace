@@ -71,3 +71,22 @@ export const Header = Style.h2`
   text-align:center;
   text-transform:capitalize;
 `;
+
+export const StatisticalCard = Style.div`
+  background: ${props => props.bg};
+  font-size: 20px;
+  font-family: Rubik sans-serif;
+  border: none;
+  padding: 20px;
+  font-weight: 900;
+  border-radius: 8px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 2px 2px 2px 2px ${props => props.bg};
+`;
+
+export const StatCardHeading = Style.div``;
+
+export const StatCardInfo = Style.div`
+  color: ${props => props.color};
+`;
