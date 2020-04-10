@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import * as Loading from './spinner';
 import * as Style from '../Styles/loan';
 
 import { Alert } from '../store/utils/helpers';
@@ -15,6 +15,7 @@ export const Loan = () => {
 	
 	// Redux Hooks
 	const dispatch = useDispatch();
+	const processing = useSelector(state => state.Loading.loading);
 
 	const handleOnChange = event => setRequestData({ ...requestData, [event.target.name]: event.target.value });
 
@@ -27,6 +28,7 @@ export const Loan = () => {
 
 	return (
 		<Fragment>
+			{processing && <Loading.RingLoadScreen /> }
 			<Style.BannerWrapper>
 				<Style.banner></Style.banner>
 			</Style.BannerWrapper>
@@ -46,7 +48,9 @@ export const Loan = () => {
 								<Style.label htmlFor="country">Enter Amount</Style.label>
 								<Style.Input type="number" name="amount" className="form-control" placeholder="2000000000" onChange={handleOnChange} />
 							</Style.Div>
-							<Style.Button type="button" onClick={handleRequestLoan}>Submit Request</Style.Button>
+							<Style.Button type="button" onClick={handleRequestLoan}>
+								Submit Request
+							</Style.Button>
 						</Style.Form>
 				</Style.formWrapper>
 			</Style.FormContainer>

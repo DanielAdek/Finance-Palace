@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import * as Loading from './spinner';
 import * as Style from '../Styles/myProfile';
 import { retrieveUserData, updateUserProfile } from '../store/action/axiosActions/auth';
 
@@ -12,6 +12,7 @@ export const UserProfile = () => {
 	// Redux Hooks
 	const dispatch = useDispatch();
 	const user = useSelector(state => state.Authenticate.user);
+	const processing = useSelector(state => state.Loading.loading);
 
 	const token = localStorage.getItem('x-auth-t');
 
@@ -33,6 +34,7 @@ export const UserProfile = () => {
 
 	return (
 		<Style.container>
+			{processing && <Loading.RingLoadScreen /> }
 			<Style.sectionWrapper>
 				<Style.PageTitle>Profile</Style.PageTitle>
 			</Style.sectionWrapper>
@@ -99,7 +101,9 @@ export const UserProfile = () => {
 										<Style.Input name="passowrd" type="password" className="form-control" onChange={handleOnChange} placeholder="*******" />
 									</Style.Div>
 								</Style.FormRow>}
-								<Style.Button button="button" onClick={handleUpdate}>Update profile</Style.Button>
+								<Style.Button button="button" onClick={handleUpdate}>
+									Update Profile
+								</Style.Button>
 							</Style.Form> }
 				</Style.FormContainer>
 			</Style.wrapper>
