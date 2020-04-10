@@ -2,38 +2,38 @@ import Style from 'styled-components';
 
 export const NavContainer = Style.div`
   display: flex;
-  background: #343a40 !important;
-  @media(max-width:450px){
+  background: #343a40;
+
+  @media(max-width: 32rem){
     display:block;
   }
 `;
 
 export const Container = Style.div`
   width: 80%;
-  @media(max-width:450px){
+  margin-left: 8.5rem;
+  padding: 0;
+
+  @media(max-width: 32rem){
     padding-top:0px;
+    margin-left: 1.5rem;
   }
 `;
 
 export const LogoutCont = Style.div`
-  width: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 20px;
+  position: absolute;
+  top: 25px;
+  right: 20px;
+
+  @media(max-width: 48rem){
+    position: static;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+  }
 `;
 
 export const LogoutTitle = Style.div`
-  font-size: 12px;
-  font-family: Rubik;
-  color: #fff;
+  color: rgba(255,255,255,.5);
   cursor: pointer;
-`;
-
-export const Opacity = Style.div`
-  background: #15549A;
-  height: 400px;
-  z-index: 10;
-  opacity:.0.5;
-  position: relative;
 `;

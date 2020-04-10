@@ -7,10 +7,10 @@ export const Footer = () => {
 		<>
 			<FT.Footer>
 				<FT.FooterTopContainer>
-					<FT.IMG src={require('../assests/images/logo.png')}></FT.IMG>
+					{/* <FT.IMG src={require('../assests/images/logo.png')}></FT.IMG> */}
 					<FT.wrapper>
 						<FT.Newsletter>Subscribe To Our Newsletter</FT.Newsletter>
-						<FRM.Form width="60%">
+						<FT.Form width="40%">
 							<FRM.Input placeholder="write an email" padding="9px" width="70%" />
 							<FRM.Button
 								width="25%"
@@ -21,10 +21,10 @@ export const Footer = () => {
 								color="white"
 								border="none"
 								height="46px"
-							>
+								>
 								Go!
 							</FRM.Button>
-						</FRM.Form>
+						</FT.Form>
 					</FT.wrapper>
 				</FT.FooterTopContainer>
 

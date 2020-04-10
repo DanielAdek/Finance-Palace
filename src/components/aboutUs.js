@@ -10,7 +10,7 @@ export const About = () => {
 				<ABT.wrapper>
 					<ABT.section1>
 						<ABT.Text>
-							<ABT.Textheader paddingTop="40px" paddingBottom="40px">
+							<ABT.Textheader paddingTop="20px" paddingBottom="20px">
 								Who We Are?
 							</ABT.Textheader>
 							<ABT.Span>
@@ -24,7 +24,7 @@ export const About = () => {
 						</ABT.Text>
 
 						<ABT.Text>
-							<ABT.Textheader paddingTop="40px" paddingBottom="40px">
+							<ABT.Textheader paddingTop="20px" paddingBottom="20px">
 								What We Offer?
 							</ABT.Textheader>
 							<ABT.Span>
@@ -46,7 +46,7 @@ export const About = () => {
 						<ABT.Cover width="70%" margin="1px auto">
 							<ABT.Para align="center" paddingBottom="40px">
 								Our goal at Insight Loan Advisors is to provide access to personal loans and credit
-								cards, car loan, at insight competitive interest raa timely mannerlorem ipsums deconse
+								cards, car loan, at insight competitive interest are timely manner. <br /> lorem ipsums deconse
 								resonescon.
 							</ABT.Para>
 						</ABT.Cover>

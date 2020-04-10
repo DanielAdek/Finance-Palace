@@ -142,7 +142,7 @@ export const Dashboard = () => {
 	return (
 		<Tabs>
 			<AC.TabNavPanel>
-				<TabList style={{width: '80%', margin: 'auto'}}>
+				<TabList>
 					<Tab>Dashboard</Tab>
 					<Tab>Acount</Tab>
 					<Tab>Loan</Tab>

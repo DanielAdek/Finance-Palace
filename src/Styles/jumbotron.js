@@ -2,9 +2,10 @@ import Style from 'styled-components';
 
 export const JumbotronSection = Style.div`
   width: 100%;
-position:absolute;
-z-index:-1;
+  z-index:-1;
 `;
+
+export const JumbotronContainter = Style.div``;
 
 export const JumbotronSliderIndicator = Style.ol``;
 
@@ -39,17 +40,30 @@ export const MyProfession = Style.div`
   font-family: -webkit-pictograph;
 `;
 
-export const JumbotronContainter = Style.div``;
-
-export const JumbotronImageCont = Style.div``;
+export const JumbotronImageCont = Style.div`
+  @media(max-width: 60rem) {
+    height: 325px;
+  }
+  @media(max-width: 32rem) {
+    height: 175px;
+  }
+`;
 
 export const JumbtronImageCover = Style.div``;
 
 export const JumbotronImage = Style.img`
   width: 100%;
   height: 400px;
+
+  @media(max-width: 48rem) {
+    height: 100%;
+  }
 `;
 
-export const JumbotronButton = Style.a``;
+export const JumbotronButton = Style.a`
+  @media(max-width: 48rem) {
+    height: 100%;
+  }
+`;
 
 export const JumbotronBtnSpan = Style.span``;

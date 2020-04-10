@@ -1,26 +1,14 @@
 import React, { Fragment } from 'react';
+import { useHistory } from 'react-router-dom'
 import * as AP from '../Styles/applicationprocess';
-import * as Card from '../Styles/card';
-import { data } from '../data/data';
+import { data, ApplicationInfo } from '../data/data';
 
 export const Applicationprocess = () => {
-	const ApplicationInfo = [
-		{
-			title: 'Choose Loan Amount',
-			number: 1,
-			text: 'Suspendisse accumsan imperdue ligula dignissim sit amet vestibulum in mollis etfelis.',
-		},
-		{
-			title: 'Approved Your Loan',
-			number: 2,
-			text: 'Fusce tempor sstibulum varius sem nec mi luctus viverra edcongue lobortis faucibus.',
-		},
-		{
-			title: 'Get Your Cash',
-			number: 3,
-			text: 'Get your money in minutes simtibulm varius semnec mluctus gue lobortis faucibus.',
-		},
-	];
+	// React Hooks
+	const history = useHistory();
+
+	const connectAboutPage = () => history.push('/about-us');
+
 	return (
 		<Fragment>
 			<AP.ApplicationContainer height="auto" margin="1px auto" width="100%" background="azure" paddingTop="20px">
@@ -31,11 +19,9 @@ export const Applicationprocess = () => {
 						congue lobortis faucibus.
 					</AP.Para>
 				</AP.ApplicationWrapper>
-				<AP.wrapper display="flex" margin="1px auto" width="80%">
-					{ApplicationInfo.map(res => (
-						<Card.Card
-							width="40%"
-							BoxShadow="1px 0px 10px 5px #e3f0fe"
+				<AP.CardsWrapper display="flex" margin="1px auto" width="80%">
+					{ApplicationInfo.flatMap(res => (
+						<AP.Card
 							marginLeft="20px"
 							border="1px solid #e3f0fe"
 							height="auto"
@@ -48,15 +34,15 @@ export const Applicationprocess = () => {
 								{res.title}
 							</AP.Header>
 							<AP.Para>{res.text}</AP.Para>
-						</Card.Card>
+						</AP.Card>
 					))}
-				</AP.wrapper>
+				</AP.CardsWrapper>
 
-				<AP.Button>View Our Loans</AP.Button>
+				<AP.Button onClick={connectAboutPage}>Know Who We Are</AP.Button>
 			</AP.ApplicationContainer>
 
 			<AP.ApplicationContainer background="#f5f7f9">
-				<AP.wrapper height="auto" width="86%" margin="60px auto">
+				<AP.CardsWrapper height="auto" width="86%" margin="60px auto">
 					<AP.Header paddingTop="10px" textALign="center" color="#3c4d6b">
 						{' '}
 						Why People Choose Us
@@ -65,15 +51,12 @@ export const Applicationprocess = () => {
 						Suspendisse aliquet varius nunc atcibus lacus sit amet coed portaeri sque mami luctus viveed
 						congue lobortis faucibus.
 					</AP.Para>
-					<Card.CardContainer
-						boxshadow="1px 0px 10px 5px #dee4ee"
-						display="flex"
-						margin="2px auto"
-						width="93%"
-					>
+					<AP.CardContainer>
 						{data.map(data => (
-							<Card.Card width="440px" background="#fff" border="1px solid #dee4ee">
-								<Card.img className={data.img} aria-hidden="true" />
+							<AP.Card
+								background="#fff"
+								marginLeft="9px">
+								<AP.Img className={data.img} aria-hidden="true" />
 								<AP.Header textALign="center" color="#3c4d6b;" margin="0px 0px 20px 0px">
 									{data.header}
 								</AP.Header>
@@ -81,16 +64,16 @@ export const Applicationprocess = () => {
 									{data.text}
 								</AP.Para>
 								<AP.LinkWrapper>
-									<AP.Link>{data.link}</AP.Link>
+									<AP.Link onClick={connectAboutPage}>{data.link}</AP.Link>
 								</AP.LinkWrapper>
-							</Card.Card>
+							</AP.Card>
 						))}
-					</Card.CardContainer>
-				</AP.wrapper>
+					</AP.CardContainer>
+				</AP.CardsWrapper>
 			</AP.ApplicationContainer>
 
-			<AP.ApplicationContainer background="#15549a" style={{ marginBottom: '100px' }}>
-				<AP.wrapper height="auto" width="86%" marginBottom="40px" margin="1px auto">
+			<AP.ApplicationContainer background="#15549a">
+				<AP.CardsWrapper height="auto" width="86%" marginBottom="40px" mb="0" margin="1px auto">
 					<AP.Header paddingTop="30px" textALign="center" margin="0px" color="#ffffff" size="30px">
 						{' '}
 						Some of our Awesome Testimonials
@@ -99,16 +82,17 @@ export const Applicationprocess = () => {
 						You won’t be the only one lorem ipsu mauris diam mattises.
 					</AP.Para>
 
-					<Card.CardContainer display="flex" margin="0px auto" width="94%" justifyContent="space-between">
+					<AP.CardContainer>
 						{data.map(data => (
 							<>
 								<Fragment>
-									<Card.Card
+									<AP.Card
 										width="340px"
 										background="#fff"
 										height="auto"
 										fontFamily="Merriweather,serif;"
 										marginBottom="40px"
+										marginLeft="10px"
 									>
 										<AP.Para
 											textALign="center"
@@ -119,12 +103,12 @@ export const Applicationprocess = () => {
 										>
 											{data.text}
 										</AP.Para>
-									</Card.Card>
+									</AP.Card>
 								</Fragment>
 							</>
 						))}
-					</Card.CardContainer>
-				</AP.wrapper>
+					</AP.CardContainer>
+				</AP.CardsWrapper>
 			</AP.ApplicationContainer>
 		</Fragment>
 	);

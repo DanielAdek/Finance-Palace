@@ -99,7 +99,7 @@ export const UserProfile = () => {
 										<Style.Input name="passowrd" type="password" className="form-control" onChange={handleOnChange} placeholder="*******" />
 									</Style.Div>
 								</Style.FormRow>}
-								<Style.Button button="button" onClick={handleUpdate}>update profile</Style.Button>
+								<Style.Button button="button" onClick={handleUpdate}>Update profile</Style.Button>
 							</Style.Form> }
 				</Style.FormContainer>
 			</Style.wrapper>

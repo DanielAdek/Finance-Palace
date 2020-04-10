@@ -23,7 +23,7 @@ export const Navigation = () => {
 			<TopNav />
 			<NC.NavContainer>
 				<NC.Container>
-					<Navbar style={{ marginLeft: '8.5rem', paddingLeft: '0'}} collapseOnSelect expand="lg" bg="dark" variant="dark">
+					<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
 						<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 						<Navbar.Collapse id="responsive-navbar-nav">
 							<Nav className="mr-auto">
@@ -43,13 +43,13 @@ export const Navigation = () => {
 								<Nav.Link>
 									<Link to="/about-us"> About us</Link>
 								</Nav.Link>
+								{ token && <NC.LogoutCont onClick={handleLogout}>
+									<NC.LogoutTitle>Logout</NC.LogoutTitle>
+								</NC.LogoutCont> }
 							</Nav>
 						</Navbar.Collapse>
 					</Navbar>
 				</NC.Container>
-				{ token && <NC.LogoutCont onClick={handleLogout}>
-						<NC.LogoutTitle>Logout</NC.LogoutTitle>
-					</NC.LogoutCont> }
 			</NC.NavContainer>
 		</Fragment>
 	);

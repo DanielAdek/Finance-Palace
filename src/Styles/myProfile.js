@@ -7,6 +7,11 @@ export const sectionWrapper = Style.div`
   margin-top: 50px;
   padding-top: 30px;
   border-radius: 4px solid #DCEEFB80;
+
+  @media(max-width: 32rem){
+    width: 100%;
+    margin-top: 1px;
+   }
 `;
 
 export const Heading = Style.div`
@@ -20,6 +25,10 @@ export const Heading = Style.div`
 export const wrapper = Style.div`
   width: 80%;
   margin: auto;
+
+  @media(max-width: 32rem){
+    width: 100%;
+   }
 `;
 
 export const FormContainer = Style.div`
@@ -40,6 +49,11 @@ export const Form = Style.div`
   margin-top: 70px;
   background: #f8f9fa;
   padding: 20px;
+
+  @media(max-width: 32rem){
+    margin-top: 10px;
+    width: 90%;
+  }
 `;
 
 export const Div = Style.div``;
@@ -57,6 +71,10 @@ export const Input = Style.input`
   color: #3e4c59;
   border: none;
   color: #62B0E8;
+
+  @media(max-width: 32rem){
+    width: 100%;
+   }
 `;
 
 export const PageTitle = Style.div`
@@ -64,6 +82,10 @@ export const PageTitle = Style.div`
   font-size: 2rem;
   padding-bottom: 20px;
   margin: 0 0 0 25px;
+
+  @media(max-width: 32rem){
+    width: 100%;
+   }
 `;
 
 export const ChangePasswordText = Style.h4`
@@ -83,4 +105,10 @@ export const Button = Style.button`
   text-align: center;
   padding: 13px;
   margin-top: 20px;
+
+  @media(max-width: 32rem){
+    width: 100%;
+    font-size: 17px;
+    margin-top: 10px;
+  }
 `;

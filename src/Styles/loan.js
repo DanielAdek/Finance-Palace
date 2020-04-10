@@ -7,7 +7,14 @@ export const FormContainer = Style.div`
   background:#fff;
   height:auto;
   margin-top:30px;
-  margin-bottom:60px
+  margin-bottom:60px;
+
+  @media (max-width: 48rem) {
+    width: 100%;
+    padding-top: 0;
+    margin: 0;
+  }
+
 `;
 export const formWrapper = Style.div`
   padding: 20px;
@@ -18,6 +25,17 @@ export const Form = Style.form`
   margin: 1px auto 70px;
   background: #f8f9fa;
   padding: 40px;
+
+  @media (max-width: 48rem) {
+    width: 80%;
+    font-size: 1.7rem;
+    padding: 20px;
+  }
+
+  @media (max-width: 32rem) {
+    width: 100%;
+    font-size: 1rem;
+  }
 `;
 
 export const Heading = Style.div`
@@ -41,6 +59,11 @@ export const banner = Style.div`
   width:100%;
   background-repeat:no-repeat;
   background-size:cover;
+  background-position: center;
+
+  @media (max-width: 32rem) {
+    height: 200px;
+  }
 `;
 
 export const label = Style.label`
@@ -61,4 +84,8 @@ export const Button = Style.button`
   text-align: center;
   border: none;
   margin-top: 30px;
+
+  @media (max-width: 32rem) {
+    width: 100%;
+  }
 `;

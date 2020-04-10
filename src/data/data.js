@@ -81,3 +81,21 @@ export const Transaction =[
 		"__v": 0
 	}
 ];
+
+export const ApplicationInfo = [
+	{
+		title: 'Choose Loan Amount',
+		number: 1,
+		text: 'Suspendisse accumsan imperdue ligula dignissim sit amet vestibulum in mollis etfelis.',
+	},
+	{
+		title: 'Approved Your Loan',
+		number: 2,
+		text: 'Fusce tempor sstibulum varius sem nec mi luctus viverra edcongue lobortis faucibus.',
+	},
+	{
+		title: 'Get Your Cash',
+		number: 3,
+		text: 'Get your money in minutes simtibulm varius semnec mluctus gue lobortis faucibus.',
+	},
+];

@@ -1,7 +1,7 @@
 import Style from 'styled-components';
 
 export const AccountContainer = Style.div`
-  width:100%;
+  width: 100%;
 `;
 
 export const Wrapper = Style.div`
@@ -33,6 +33,11 @@ export const sectionWrapper = Style.div`
   margin-top: 50px;
   padding-top: 30px;
   border-radius: 4px solid #DCEEFB80;
+
+  @media(max-width: 32rem) {
+    width: 100%;
+    margin-top: 1px;
+   }
 `;
 
 
@@ -41,6 +46,12 @@ export const PageTitle = Style.div`
   font-size: 2rem;
   padding-bottom: 20px;
   margin: 0 0 0 25px;
+
+  @media(max-width: 32rem){
+    width: 100%;
+    padding-left: 25px;
+    margin: 0;
+   }
 `;
 
 export const Cover = Style.div`
@@ -48,6 +59,10 @@ export const Cover = Style.div`
   height: auto;
   width: 80%;
   margin: 0 auto;
+
+  @media(max-width: 32rem){
+    width: 100%;
+   }
 `;
 
 
@@ -65,11 +80,25 @@ export const Card = Style.div`
 export const TabNavPanel = Style.div`
   background-color: #343a40;
   padding-top: 10px;
+  width: 100%;
+
+  @media(max-width: 370px) {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export const Header = Style.h2`
-  text-align:center;
-  text-transform:capitalize;
+  text-align: center;
+  text-transform: capitalize;
+
+  @media(max-width: 32rem){
+    width: 100%;
+    margin-top: 50px;
+    background: #15549A;
+    color: #fff;
+    padding: 10px;
+   }
 `;
 
 export const StatisticalCard = Style.div`
@@ -80,7 +109,7 @@ export const StatisticalCard = Style.div`
   padding: 20px;
   font-weight: 900;
   border-radius: 8px;
-  width: 90%;
+  width: 94%;
   text-align: center;
   box-shadow: 2px 2px 2px 2px ${props => props.bg};
 `;

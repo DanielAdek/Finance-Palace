@@ -47,7 +47,7 @@ export const UserAccount = () => {
 			<Acct.Marchant>{data.bankName}</Acct.Marchant>
 			<Acct.Header>Balance</Acct.Header>
 			<Acct.Balance>{ToNairaFormat(data.balance)}</Acct.Balance>
-			<Acct.UpdateBal onClick={() => handleUpdateBalance(data)}>Add Money</Acct.UpdateBal>
+			<Acct.UpdateBal onClick={() => handleUpdateBalance(data)}>Add More Money</Acct.UpdateBal>
 		</Acct.ListMarchants>
 	))
 

@@ -5,6 +5,10 @@ export const Div = Style.div``;
 export const wrapper = Style.div`
   width:${props => props.width};
   margin:${props => props.margin};
+
+  @media(max-width: 32rem){
+    width: 100%;
+   }
 `;
 
 export const Grid3Col = Style.div`
@@ -12,12 +16,24 @@ export const Grid3Col = Style.div`
   grid-template-columns: 20% 49% 30%;
   grid-gap: 6px;
   margin-top: 3px;
+
+  @media(max-width: 32rem){
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+   }
 `;
 
 export const Grid1 = Style.div`
   background: #fff;
   padding: 20px;
   max-height: ${ props => props.increase ? '200px' : '100px'};
+
+  @media(max-width: 32rem){
+    background: #F2C94C;
+    color: #fff;
+    font-weight: bold;
+   }
 `;
 
 export const SimpleForm = Style.form`
@@ -57,7 +73,11 @@ export const CreateBtn = Style.div`
 
 export const Grid2 = Style.div`
   background: #fff;
-  height: 500px;
+  min-height: 500px;
+
+  @media(max-width: 32rem){
+    margin-bottom: 4px;
+   }
 `;
 
 export const NoAccount = Style.div`
@@ -82,16 +102,20 @@ export const Contain = Style.div`
 
 export const Label = Style.div`
   font-size: 1rem;
-  font-weiht: 400px;
+  font-weight: 400px;
   margin-right: 20px;
-  font-family: Rubik "Open Sans" sans-serif;
+  font-family: Rubik Open Sans sans-serif;
+
+  @media(max-width: 32rem) {
+    margin: 0;
+   }
 `;
 
 export const Bvn = Style.div`
   font-size: 1rem;
   font-weiht: 400px;
   color: #62B0E8;
-  font-family: Rubik "Open Sans" sans-serif;
+  font-family: Rubik Open Sans sans-serif;
 `;
 
 export const RevelBtn = Style.div`
@@ -104,25 +128,25 @@ export const RevelBtn = Style.div`
 export const Username = Style.div`
   font-size: 1rem;
   font-weiht: 400px;
-  font-family: Rubik "Open Sans" sans-serif;
+  font-family: Rubik Open Sans sans-serif;
 `;
 
 export const Address = Style.div`
   font-size: 1rem;
   font-weiht: 400px;
-  font-family: Rubik "Open Sans" sans-serif;
+  font-family: Rubik Open Sans sans-serif;
 `;
 
 export const Email = Style.div`
   font-size: 1rem;
   font-weiht: 400px;
-  font-family: Rubik "Open Sans" sans-serif;
+  font-family: Rubik Open Sans sans-serif;
 `;
 
 export const PhoneNumber = Style.div`
   font-size: 1rem;
   font-weiht: 400px;
-  font-family: Rubik "Open Sans" sans-serif;
+  font-family: Rubik Open Sans sans-serif;
 `;
 
 export const Grid3 = Style.div`
@@ -137,12 +161,17 @@ export const ListMarchants = Style.div`
   &:hover {
     box-shadow: 2px 2px 6px 2px #ccc;
   }
+
+  @media(max-width: 32rem){
+    background: #15549A;
+    color: #fff;
+   }
 `;
 
 export const Header = Style.div`
   font-weight: 500;
   line-height: 14px;
-  font-family: "Open Sans";
+  font-family: Open Sans;
   margin-bottom: 5px;
 `;
 
@@ -151,7 +180,7 @@ export const Marchant = Style.div`
   font-weight: 500;
   line-height: 33px;
   font-size: 16px;
-  font-family: "Open Sans";
+  font-family: Open Sans;
   margin-bottom: 20px;
 `;
 
@@ -159,7 +188,7 @@ export const Balance = Style.div`
   font-weight: 600;
   line-height: 33px;
   font-size: 17px;
-  font-family: "Open Sans";
+  font-family: Open Sans;
 `;
 
 export const UpdateBal = Style.button`
@@ -180,6 +209,11 @@ export const sectionWrapper = Style.div`
   margin-top: 50px;
   padding-top: 30px;
   border-radius: 4px solid #DCEEFB80;
+
+  @media(max-width: 32rem){
+    width: 100%;
+    margin-top: 1px;
+   }
 `;
 
 
@@ -188,4 +222,10 @@ export const PageTitle = Style.div`
   font-size: 2rem;
   padding-bottom: 20px;
   margin: 0 0 0 25px;
+
+  @media(max-width: 32rem){
+    width: 100%;
+    padding-left: 25px;
+    margin: 0;
+   }
 `;

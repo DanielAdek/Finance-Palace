@@ -1,3 +1,7 @@
 {
-  "mocha.enabled": true
+  "mocha.enabled": true,
+  "editor.tabSize": 2,
+  "files.autoSave": "onFocusChange",
+  "prettier.useTabs": true,
+  "rest-client.showResponseInDifferentTab": true
 }

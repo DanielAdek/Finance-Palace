@@ -22,7 +22,7 @@ export const TopNav = () => {
 		<TP.TopNav>
 			<TP.NavContainer>
 				<TP.para>
-					<TP.WelcomeText Display="none">
+					<TP.WelcomeText>
 						<Link to="/">Finance Palace</Link>
 					</TP.WelcomeText>
 				</TP.para>

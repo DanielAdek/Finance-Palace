@@ -1,10 +1,8 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import * as CL from '../Styles/loan';
 import * as UP from '../Styles/updateProfile';
 
-// import * as SD from '../Styles/singleCard';
 import * as FM from '../Styles/form';
-import { InputRanges } from '../components/input-range';
 
 export const UpdateProfile = () => {
 	return (

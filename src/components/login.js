@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import * as Loading from './spinner';
 import { handleAuthenticate } from '../store/action/axiosActions/auth';
 import * as SI from '../Styles/login';
 
@@ -12,6 +12,7 @@ export const LoginAuthentication = () => {
 
 	// Redux Hooks
 	const dispatch = useDispatch();
+	const processing = useSelector(state => state.Loading.loading);
 
 	// actions
 	const handleChange = e => setLoginData({ ...loginData, [e.target.name]: e.target.value });
@@ -23,15 +24,9 @@ export const LoginAuthentication = () => {
 			<SI.SignupLeft>
 				<SI.SiteLogo></SI.SiteLogo>
 			</SI.SignupLeft>
-
 			<SI.Signupright>
-				<SI.PTag>
-					<Link to="/">Home</Link>
-				</SI.PTag>
-
 				<SI.SignupRightContainer>
 					<SI.Div>Welcome Back!</SI.Div>
-
 					<SI.SignupHeadText>
 						Don't have an account? <Link to="/signup">Sign Up </Link>
 					</SI.SignupHeadText>
@@ -57,11 +52,19 @@ export const LoginAuthentication = () => {
 								></SI.FormInput>
 							</SI.formGroup>
 						</SI.formRow>
-						<SI.SignupBotton type="button" onClick={handleSubmit}>Login</SI.SignupBotton>
+						<SI.SignupBotton type="button" onClick={handleSubmit}>
+						{processing ? <Loading.RingLoad /> : 'Login' }
+						</SI.SignupBotton>
+							<SI.ChangePage>
+							<SI.ForgetPassword>
+								<Link to="/forgetpassword">Forget Password</Link>
+							</SI.ForgetPassword>
+							<SI.PTag>
+								<Link to="/">Back To Home</Link>
+							</SI.PTag>
+						</SI.ChangePage>
 					</SI.Form>
-					<SI.ForgetPassword>
-						<Link to="/forgetpassword">Forget Password</Link>
-					</SI.ForgetPassword>
+					
 				</SI.SignupRightContainer>
 			</SI.Signupright>
 		</SI.signupContainer>
